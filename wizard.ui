@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Wizard</class>
+ <widget class="QWizard" name="Wizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>706</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Particles</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="particleswizard.qrc">
+    <normaloff>:/icons/pajak32.png</normaloff>:/icons/pajak32.png</iconset>
+  </property>
+  <property name="wizardStyle">
+   <enum>QWizard::ClassicStyle</enum>
+  </property>
+  <property name="options">
+   <set>QWizard::NoBackButtonOnStartPage</set>
+  </property>
+  <widget class="QWizardPage" name="wizardPage1">
+   <property name="title">
+    <string>Load data</string>
+   </property>
+   <attribute name="pageId">
+    <string notr="true">1</string>
+   </attribute>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QPushButton" name="loadButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Load...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="particleswizard.qrc">
+          <normaloff>:/icons/document-open.png</normaloff>:/icons/document-open.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Force time step</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="timeStepSpinBox">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="decimals">
+         <number>6</number>
+        </property>
+        <property name="singleStep">
+         <double>0.001000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeDupsButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Remove duplicates</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeStuckButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Remove stuck</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Minimum distance</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="minimumDistanceSpinBox">
+        <property name="decimals">
+         <number>6</number>
+        </property>
+        <property name="singleStep">
+         <double>0.000010000000000</double>
+        </property>
+        <property name="value">
+         <double>0.000010000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPlainTextEdit" name="plainTextEdit">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage2">
+   <property name="title">
+    <string>Define inlet plane</string>
+   </property>
+   <attribute name="pageId">
+    <string notr="true">2</string>
+   </attribute>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="View3D_Cross" name="render3DA" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Step:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="viewStepSpinBox"/>
+      </item>
+      <item>
+       <widget class="QSlider" name="viewStepSlider">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Cross-section:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>12</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>x</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="crossSectionXSpinBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimum">
+           <double>-10.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.010000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>12</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>y</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="crossSectionYSpinBox">
+          <property name="minimum">
+           <double>-10.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.010000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>12</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>z</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="crossSectionZSpinBox">
+          <property name="minimum">
+           <double>-10.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.010000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>12</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>d</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="crossSectionSpinBox">
+          <property name="decimals">
+           <number>6</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.010000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="showTrajectoriesCheck">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Show trajectories</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage3">
+   <property name="title">
+    <string>Assign parameters to particles</string>
+   </property>
+   <attribute name="pageId">
+    <string notr="true">3</string>
+   </attribute>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="View3D_Tessellate" name="renderTes" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="clearButton">
+        <property name="text">
+         <string>Clear all</string>
+        </property>
+        <property name="icon">
+         <iconset resource="particleswizard.qrc">
+          <normaloff>:/icons/edit-clear.png</normaloff>:/icons/edit-clear.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Inlet center</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QDoubleSpinBox" name="xSpinBox">
+          <property name="decimals">
+           <number>6</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.000100000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="ySpinBox">
+          <property name="decimals">
+           <number>6</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.000100000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Radius</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="radiusSpinBox">
+        <property name="decimals">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <double>10000.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Cells</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="whatEqualCombo">
+        <item>
+         <property name="text">
+          <string>Equal volumes</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Equal lengths</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Equal repetition time</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="valueEqualSpinBox">
+        <property name="decimals">
+         <number>12</number>
+        </property>
+        <property name="maximum">
+         <double>10000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="tesselateCheckBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Tesselate</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="addInletButton">
+        <property name="text">
+         <string>Add Inlet</string>
+        </property>
+        <property name="icon">
+         <iconset resource="particleswizard.qrc">
+          <normaloff>:/icons/list-add.png</normaloff>:/icons/list-add.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPageK">
+   <property name="title">
+    <string>Verify and save</string>
+   </property>
+   <attribute name="pageId">
+    <string notr="true">4</string>
+   </attribute>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="View3D_Verify" name="renderVerify" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Time:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="randomizeCheckBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Randomize offsets</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string>Save...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="particleswizard.qrc">
+          <normaloff>:/icons/document-save.png</normaloff>:/icons/document-save.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="animationTimeSpinBox">
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="decimals">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <double>10000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="animateSlider">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimum">
+         <number>-32</number>
+        </property>
+        <property name="maximum">
+         <number>32</number>
+        </property>
+        <property name="pageStep">
+         <number>8</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBelow</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>View3D_Cross</class>
+   <extends>QWidget</extends>
+   <header>view3d.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>View3D_Tessellate</class>
+   <extends>QWidget</extends>
+   <header>view3d.h</header>
+   <container>1</container>
+   <slots>
+    <signal>radiusChanged(double)</signal>
+    <signal>centerXChanged(double)</signal>
+    <signal>centerYChanged(double)</signal>
+    <slot>centerXChangedIn(double)</slot>
+    <slot>centerYChangedIn(double)</slot>
+    <slot>radiusChangedIn(double)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>View3D_Verify</class>
+   <extends>QWidget</extends>
+   <header>view3d.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="particleswizard.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>viewStepSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>viewStepSpinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>686</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>651</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>viewStepSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>viewStepSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>605</x>
+     <y>70</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renderTes</sender>
+   <signal>radiusChanged(double)</signal>
+   <receiver>radiusSpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>305</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>286</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renderTes</sender>
+   <signal>centerXChanged(double)</signal>
+   <receiver>xSpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>437</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>526</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renderTes</sender>
+   <signal>centerYChanged(double)</signal>
+   <receiver>ySpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>456</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>631</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>renderTes</receiver>
+   <slot>centerXChangedIn(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>496</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ySpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>renderTes</receiver>
+   <slot>centerYChangedIn(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>656</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radiusSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>renderTes</receiver>
+   <slot>radiusChangedIn(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>594</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
