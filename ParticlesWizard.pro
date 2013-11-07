@@ -62,3 +62,7 @@ RESOURCES += \
 
 unix|win32: LIBS += -lqhull
 
+OTHER_FILES += \
+    README.md \
+    LICENSE.md
+
