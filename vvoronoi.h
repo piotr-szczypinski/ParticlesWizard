@@ -18,11 +18,7 @@
 #ifndef VVORONOI_H
 #define VVORONOI_H
 
-
-    #include "./libqhull/qhull_a.h"
-    #include "./libqhull/libqhull.h"
-
-
+#include <qhull/qhull_a.h>
 
 typedef struct VoronoiData
 {

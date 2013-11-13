@@ -37,7 +37,6 @@ const unsigned int RoiColors[MAX_ROIS]=
     0x0080FF00, 0x00FF0080, 0x00FF8000,
     0x0000C4FF, 0x0000FFC4, 0x00FF00C4,
     0x00C4FF00
-    //		,0x00F0F0F0
 };
 /*------------------------------------------------------------------------*/
 double podwyznacznik(double M[2][2], int w, int k)
