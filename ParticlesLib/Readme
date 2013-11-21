@@ -1,0 +1,3 @@
+The files in the folder are source codes to be linked with the MR flow simulator module.
+There are functions for loading particles' data and providing locations of particles 
+inside the tube.
