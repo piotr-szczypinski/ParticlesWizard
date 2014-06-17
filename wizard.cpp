@@ -345,7 +345,7 @@ void Wizard::on_removeStuckButton_clicked()
         }
     }
 
-    for(k = trn-1; k > 0; k--) if(dups[k]) trajectories.removeTrajectory(k);
+    for(k = trn-1; k < trn; k--) if(dups[k]) trajectories.removeTrajectory(k);
     delete[] dups;
 
     ui->plainTextEdit->setPlainText(validateTrajectories());
